@@ -1,11 +1,13 @@
 var zipcode = '37217';
-var url = 'http://api.wunderground.com/api/2ffba1e154f1d0c5/forecast10day/q/' + zipcode + '.json';
+var url = 'http://api.wunderground.com/api/2ffba1e154f1d0c5/conditions/forecast10day/q/' + zipcode + '.json';
 
 function addItemToList($list, temp){
 	var $li =document.createElement('li');
+	var $city=document.createElement('p');
 	var $day = document.createElement('p');
   var $high = document.createElement('p');
   var $low = document.createElement('p');
+	//$city.innerHTML = location.
   $day.innerHTML = temp.date.weekday;
   $high.innerHTML = 'High: ' + temp.high.fahrenheit + "&deg f";
   $low.innerHTML = 'Low: ' + temp.low.fahrenheit + "&deg f";
@@ -33,8 +35,8 @@ function showData(data){
     addItemToList($ul, forecast[i]);
     console.log('FC', forecast[i]);
   }
-	var city = data.location.city;
-  newCity(city);
+//	var city = data.location;
+  //newCity(city);
 }
 document.addEventListener('DOMContentLoaded', function(){
 	var $form = document.getElementById('enterZip');
